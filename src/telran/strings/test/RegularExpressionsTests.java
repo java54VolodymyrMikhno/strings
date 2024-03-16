@@ -10,7 +10,7 @@ class RegularExpressionsTests {
 
 	@Test
 	void javaVariableTrueTest() {
-		
+
 		String regex = RegularExpresions.javaVariable();
 		assertTrue("abs".matches(regex));
 		assertTrue("a".matches(regex));
@@ -21,6 +21,7 @@ class RegularExpressionsTests {
 		assertTrue("__".matches(regex));
 		assertTrue("Abs_".matches(regex));
 	}
+
 	@Test
 	void javaVariableFalseTest() {
 		String regex = RegularExpresions.javaVariable();
@@ -30,8 +31,9 @@ class RegularExpressionsTests {
 		assertFalse("a 2".matches(regex));
 		assertFalse("a?2".matches(regex));
 		assertFalse("i*nt".matches(regex));
-		
+
 	}
+
 	@Test
 	void zero_300TrueTest() {
 		String regex = RegularExpresions.zero_300();
@@ -43,9 +45,9 @@ class RegularExpressionsTests {
 		assertTrue("30".matches(regex));
 		assertTrue("33".matches(regex));
 		assertTrue("300".matches(regex));
-		
-		
+
 	}
+
 	@Test
 	void zero_300FalseTest() {
 		String regex = RegularExpresions.zero_300();
@@ -57,9 +59,9 @@ class RegularExpressionsTests {
 		assertFalse("-30".matches(regex));
 		assertFalse("330".matches(regex));
 		assertFalse("301".matches(regex));
-		
-		
+
 	}
+
 	@Test
 	void ipOctetTest() {
 		String regex = RegularExpresions.ipOctet();
@@ -83,11 +85,22 @@ class RegularExpressionsTests {
 		assertFalse("256".matches(regex));
 		assertFalse("260".matches(regex));
 		assertFalse("300".matches(regex));
-		
+
 	}
+
 	@Test
 	void mobileIsraelPhoneTest() {
-		//TODO
+		String regex = RegularExpresions.mobileIsraelPhone();
+		assertTrue("+972-58-1234567".matches(regex));
+		assertTrue("+972-55-7654321".matches(regex));
+		assertTrue("+972-51-9876543".matches(regex));
+		
+		assertFalse("+972-10-7654321".matches(regex));
+		assertFalse("+972-60-7654321".matches(regex));
+		assertFalse("+972-55-12345677".matches(regex)); 
+		assertFalse("+972-55-765432".matches(regex));
+		assertFalse("972-55-1234567".matches(regex));
+		assertFalse("97255-1234567".matches(regex));
 	}
 
 }

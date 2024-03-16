@@ -14,11 +14,6 @@ public static String ipOctet() {
 	
 }
 public static String mobileIsraelPhone() {
-	//TODO
-	//string contains possible Israel mobile phone number
-	//+972-<prefix two digits beginning from 5>-<7 digits of number>
-	//<prefix three digits: first - 0, second 5, third - any>-<7 digits>
-	
 	 return "\\+972-(5[0-9])-\\d{7}";
 }
 }
