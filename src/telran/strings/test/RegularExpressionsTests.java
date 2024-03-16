@@ -82,7 +82,7 @@ class RegularExpressionsTests {
 		assertFalse("00a".matches(regex));
 		assertFalse("256".matches(regex));
 		assertFalse("260".matches(regex));
-		assertFalse("301".matches(regex));
+		assertFalse("300".matches(regex));
 		
 	}
 	@Test
