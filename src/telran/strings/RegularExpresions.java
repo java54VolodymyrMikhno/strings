@@ -14,6 +14,6 @@ public static String ipOctet() {
 	
 }
 public static String mobileIsraelPhone() {
-	 return "\\+972-(5[0-9])-\\d{7}";
+	 return "\\+972-(5[0-9])-\\d{7}|05[0-9]-\\d{7}";
 }
 }

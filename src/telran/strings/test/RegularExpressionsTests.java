@@ -94,6 +94,8 @@ class RegularExpressionsTests {
 		assertTrue("+972-58-1234567".matches(regex));
 		assertTrue("+972-55-7654321".matches(regex));
 		assertTrue("+972-51-9876543".matches(regex));
+		assertTrue("051-9876543".matches(regex));
+		assertTrue("050-1234567".matches(regex));
 		
 		assertFalse("+972-10-7654321".matches(regex));
 		assertFalse("+972-60-7654321".matches(regex));
@@ -101,6 +103,12 @@ class RegularExpressionsTests {
 		assertFalse("+972-55-765432".matches(regex));
 		assertFalse("972-55-1234567".matches(regex));
 		assertFalse("97255-1234567".matches(regex));
+		assertFalse("065-1234567".matches(regex));
+		assertFalse("0651234567".matches(regex));
+		assertFalse("165-1234567".matches(regex));
+		assertFalse("055-234567".matches(regex));
+		assertFalse("055-23456711".matches(regex));
+		
 	}
 
 }
