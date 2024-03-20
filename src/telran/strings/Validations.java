@@ -2,28 +2,20 @@ package telran.strings;
 
 public class Validations {
 	public static boolean isArithmeticExpression(String expression) {
-		//1. Checking against the regular expression
-		//2. checking brackets pairness For each'(' there should be')
-		// consider introducing counter that increased for'(' and decreased for')'
-		// if during passing over the string expression  counter < 0 returning false
- 		//if after passing whole string counter!=0 returning false
 		
 		String regex = RegularExpresions.arithmeticExpression();
-		if(!expression.matches(regex)) return false;
-		
-		
 		int counter = 0;
-		for (char ch  : expression.toCharArray()) {
-			if(ch == '(') {
+		int index = 0;
+		while (index < expression.length() && counter != -1) {
+			char ch = expression.charAt(index);
+			if (ch == '(') {
 				counter++;
-			}
-			else if(ch == ')') {
+			} else if (ch == ')') {
 				counter--;
-				if(counter<0)return false;
 			}
+			index++;
 		}
-		
-		return counter==0;
+
+		return counter == 0 && expression.matches(regex);
 	}
-	
 }

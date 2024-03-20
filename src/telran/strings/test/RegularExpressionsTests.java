@@ -140,6 +140,14 @@ class RegularExpressionsTests {
 	@DisplayName("test arithmetic expressions with any numbers or variable names and brackets")
 	void arithmeticExpressionTest() {
 		String regex = RegularExpresions.arithmeticExpression();
+		assertTrue("20".matches(regex));
+		assertTrue(" 20 +3 /2 *100".matches(regex));
+		assertTrue("1000-1".matches(regex));
+		assertTrue("1000-1 ".matches(regex));
+		assertFalse("-20".matches(regex));
+		assertFalse("20 ** 3".matches(regex));
+		assertFalse(" 20 +3 /2 *100 +".matches(regex));
+		assertFalse(" 20 +3 //2 *100".matches(regex));
 		assertTrue("(20.5 + abc12))*2".matches(regex));
 		assertTrue("(20.5 + (abc$ / 3)*(2".matches(regex));
 		assertTrue("(__)".matches(regex));

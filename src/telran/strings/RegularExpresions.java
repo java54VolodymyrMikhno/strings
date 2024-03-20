@@ -49,7 +49,7 @@ public class RegularExpresions {
 		//operation - the same as for simpleArithmeticExpression
 		//brackets '(' ')' are allowed
 		String operation = operationExp();
-		String operand = "(" + javaVariable() + "|" + integerNumberExp() + "(\\.\\d*)?)";
+		String operand = String.format("(%s|%s(\\.\\d*)?)", javaVariable(), integerNumberExp());
 
 		return String.format("\\(*%1$s\\)*(\\s*%2$s\\s*\\(*%1$s\\)*)*\\s*", operand, operation);
 	}
