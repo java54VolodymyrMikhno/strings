@@ -45,10 +45,13 @@ public class RegularExpresions {
 	}
 
 	public static String arithmeticExpression() {
+		//operand - any number or Java variable name
+		//operation - the same as for simpleArithmeticExpression
+		//brackets '(' ')' are allowed
 		String operation = operationExp();
 		String operand = "(" + javaVariable() + "|" + integerNumberExp() + "(\\.\\d*)?)";
 
-		return String.format("\\(*%1$s*\\)*(\\s*%2$s\\s*\\(*%1$s\\)*)*\\s*", operand, operation);
+		return String.format("\\(*%1$s\\)*(\\s*%2$s\\s*\\(*%1$s\\)*)*\\s*", operand, operation);
 	}
 
 }
